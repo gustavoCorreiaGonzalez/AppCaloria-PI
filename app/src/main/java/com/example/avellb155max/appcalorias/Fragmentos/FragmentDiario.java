@@ -1,0 +1,145 @@
+package com.example.avellb155max.appcalorias.Fragmentos;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.avellb155max.appcalorias.Classes.Diario;
+import com.example.avellb155max.appcalorias.R;
+
+import java.util.List;
+
+/**
+ * Created by gustavo on 24/10/15.
+ */
+
+public class FragmentDiario extends Fragment {
+    private ListView listView;
+
+    public static FragmentPerformance newInstance(String param1, String param2) {
+        FragmentPerformance fragment = new FragmentPerformance();
+
+        return fragment;
+    }
+
+    public FragmentDiario() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_diario, container, false);
+
+        listView = (ListView) rootView.findViewById(R.id.listViewDiario);
+
+        // manipulador de evento de clique na lista
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Diario diario = ((DiarioAdapter) listView.getAdapter()).getItem(position);
+
+                getActivity().getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_layout, FragmentRefeicoes.newInstance(diario.getId())).addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Diario diario = ((DiarioAdapter) listView.getAdapter()).getItem(position);
+                removerDiario(diario.getId());
+                return true;
+            }
+        });
+
+        return rootView;
+    }
+
+    // Função que roda ao iniciar o fragmento
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // atualiza lista
+        updateListContent();
+    }
+
+    // Função que atualiza a lista do Diário
+    private void updateListContent() {
+        List<Diario> items = Diario.findWithQuery(Diario.class, "SELECT * FROM Diario");
+
+        DiarioAdapter adapter = new DiarioAdapter(getActivity(), items);
+        listView.setAdapter(adapter);
+    }
+
+    // Função que remove o dia de treino
+    public void removerDiario(final long id){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Remover esse dia de treino?");
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Diario diario = Diario.findById(Diario.class, id);
+                diario.delete();
+                Toast.makeText(getActivity(), "O treino foi removido!", Toast.LENGTH_SHORT).show();
+
+                updateListContent();
+
+                listView.invalidateViews();
+            }
+        })
+        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        }).setIcon(android.R.drawable.ic_delete).show();
+    }
+
+    // adapter para o conteudo da ListView
+    private class DiarioAdapter extends ArrayAdapter<Diario> {
+        public DiarioAdapter(Context context, List<Diario> items) {
+            super(context, android.R.layout.simple_list_item_1, items);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            // se nao recebermos uma view, infla uma
+            if (null == convertView) {
+                convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_diario_itens, null);
+            }
+
+            final Diario diario = getItem(position);
+
+            TextView data = (TextView) convertView.findViewById(R.id.textView_data);
+            data.setText(String.valueOf(diario.getData()));
+
+            TextView consumidas = (TextView) convertView.findViewById(R.id.textViewConsumidas);
+            consumidas.setText(String.valueOf(diario.getCaloriasConsumidas()));
+
+            TextView restantes = (TextView) convertView.findViewById(R.id.textViewRestantes);
+            restantes.setText(String.valueOf(diario.getCaloriasRestantes()));
+
+            TextView queimadas = (TextView) convertView.findViewById(R.id.textViewQueimadas);
+            queimadas.setText(String.valueOf(diario.getCaloriasQueimadas()));
+
+            return convertView;
+        }
+    }
+}

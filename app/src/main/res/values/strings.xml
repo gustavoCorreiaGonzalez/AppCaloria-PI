@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AppCalorias</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_id">444416889088978</string>
+
+    // Título do aplicativos
+    <string name="drawer_item_compact_header">Projeto Verão</string>
+
+    // Itens do menu do Drawer
+    <string name="drawer_item_user">Eu</string>
+    <string name="drawer_item_Diary">Diário</string>
+    <string name="drawer_item_physical_activities">Atividades Físicas</string>
+    <string name="drawer_item_physical_meal">Refeições</string>
+
+    <string name="drawer_item_section_header">Section Header</string>
+    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_help">Help</string>
+    <string name="drawer_item_open_source">Open Source</string>
+    <string name="drawer_item_contact">Contact</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_activity_login">ActivityLogin</string>
+</resources>
