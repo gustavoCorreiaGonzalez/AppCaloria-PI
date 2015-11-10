@@ -1,0 +1,95 @@
+{
+  "subCategorias": [
+    {
+      "idCategoria": "1",
+      "id": "1",
+      "nome": "Bebidas gaseificadas"
+    },
+    {
+      "idCategoria": "1",
+      "id": "2",
+      "nome": "Bebidas lácteas"
+    },
+    {
+      "idCategoria": "1",
+      "id": "3",
+      "nome": "Bebidas quentes"
+    },
+    {
+      "idCategoria": "1",
+      "id": "4",
+      "nome": "Cafe e chá"
+    },
+    {
+      "idCategoria": "1",
+      "id": "5",
+      "nome": "Cerveja e vinho"
+    },
+    {
+      "idCategoria": "1",
+      "id": "6",
+      "nome": "Energia"
+    },
+    {
+      "idCategoria": "1",
+      "id": "7",
+      "nome": "Licor"
+    },
+    {
+      "idCategoria": "1",
+      "id": "8",
+      "nome": "Low calorie"
+    },
+    {
+      "idCategoria": "1",
+      "id": "9",
+      "nome": "Outras bebidas"
+    },
+    {
+      "idCategoria": "1",
+      "id": "10",
+      "nome": "Suco"
+    },
+    {
+      "idCategoria": "1",
+      "id": "12",
+      "nome": "Água"
+    },
+    {
+
+      "idCategoria": "2",
+      "id": "1",
+      "nome": "Acém"
+    },
+    {
+      "idCategoria": "2",
+      "id": "2",
+      "nome": "Costela"
+    },
+    {
+      "idCategoria": "2",
+      "id": "3",
+      "nome": "Lagarto"
+    },
+    {
+      "idCategoria": "2",
+      "id": "4",
+      "nome": "Lombo"
+    },
+    {
+      "idCategoria": "2",
+      "id": "5",
+      "nome": "Moída"
+    },
+    {
+      "idCategoria": "2",
+      "id": "6",
+      "nome": "Outro"
+    },
+    {
+      "idCategoria": "2",
+      "id": "7",
+      "nome": "Peito e fraldinha"
+    }
+  ]
+}

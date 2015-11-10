@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withCompactStyle(true)
-                .withHeaderBackground(R.drawable.header)
+                .withHeaderBackground(R.drawable.header3)
                 .addProfiles(profile,
                         new ProfileSettingDrawerItem().withName("Adicionar Conta").withDescription("TEST").withIdentifier(PROFILE_SETTING))
                 .withSavedInstance(savedInstanceState)
@@ -75,25 +75,29 @@ public class MainActivity extends AppCompatActivity {
                         new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        switch(position){
+                @Override
+                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                    switch (position) {
                             case 1:
                                 Fragment fragment_user = new FragmentPerformance();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.content_layout, fragment_user).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_user).addToBackStack(null).commit();
+                                break;
                             case 2:
-                                Fragment fragment_dados = new FragmentDiario();
+                                Fragment fragment_diario = new FragmentDiario();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.content_layout, fragment_dados).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_diario).addToBackStack(null).commit();
+                                break;
                             case 3:
                                 Fragment fragment_atividade = new FragmentAtividadeFisica();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.content_layout, fragment_atividade).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_atividade).addToBackStack(null).commit();
+                                break;
                             case 4:
                                 Fragment fragment_refeicao = new FragmentRefeicoes();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.content_layout, fragment_refeicao).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_refeicao).addToBackStack(null).commit();
+                                break;
                         }
                         return false;
                     }

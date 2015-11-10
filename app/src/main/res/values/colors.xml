@@ -6,6 +6,11 @@
     <color name="colorPrimaryDark">#3BC553</color>
     <color name="colorAccent">#81E793</color>
 
+    // listView
+    <color name="colorContainer">#F0F0E6</color>
+    <color name="colorListView">#BABAB6</color>
+
+
     // floatingactionbutton
     <color name="black_semi_transparent">#B2000000</color>
     <color name="half_black">#808080</color>

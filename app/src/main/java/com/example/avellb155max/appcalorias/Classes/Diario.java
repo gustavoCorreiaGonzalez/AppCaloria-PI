@@ -14,25 +14,25 @@ public class Diario extends SugarRecord<Diario> {
     int caloriasQueimadas;
     int caloriasRestantes;
     Date data;
-    List<Alimentos> cafeDaManha;
+    /*List<Alimentos> cafeDaManha;
     List<Alimentos> almoco;
     List<Alimentos> janta;
-    List<Alimentos> lanches;
+    List<Alimentos> lanches;*/
 
     public Diario(){
     }
 
-    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data, List<Alimentos> cafeDaManha,
-                    List<Alimentos> almoco, List<Alimentos> janta, List<Alimentos> lanches){
+    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data/*, List<Alimentos> cafeDaManha,
+                    List<Alimentos> almoco, List<Alimentos> janta, List<Alimentos> lanches*/){
 
         this.caloriasConsumidas = caloriasConsumidas;
         this.caloriasQueimadas = caloriasQueimadas;
         this.caloriasRestantes = caloriasRestantes;
-        this.cafeDaManha = cafeDaManha;
         this.data = data;
+        /*this.cafeDaManha = cafeDaManha;
         this.almoco = almoco;
         this.janta = janta;
-        this.lanches = lanches;
+        this.lanches = lanches;*/
     }
 
     public int getCaloriasConsumidas() {
@@ -67,7 +67,7 @@ public class Diario extends SugarRecord<Diario> {
         this.data = data;
     }
 
-    public List<Alimentos> getCafeDaManha() {
+    /*public List<Alimentos> getCafeDaManha() {
         return cafeDaManha;
     }
 
@@ -97,5 +97,5 @@ public class Diario extends SugarRecord<Diario> {
 
     public void setLanches(List<Alimentos> lanches) {
         this.lanches = lanches;
-    }
+    }*/
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.avellb155max.appcalorias.Classes.Alimentos;
 import com.example.avellb155max.appcalorias.Classes.Diario;
 import com.example.avellb155max.appcalorias.R;
+import com.example.avellb155max.appcalorias.Utils.Utils;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,7 +63,7 @@ public class FragmentDiario extends Fragment {
 
                 getActivity().getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.content_layout, FragmentRefeicoes.newInstance(diario.getId())).addToBackStack(null)
+                        .replace(R.id.fragment_container, FragmentRefeicoes.newInstance(diario.getId())).addToBackStack(null)
                         .commit();
             }
         });
@@ -68,6 +74,13 @@ public class FragmentDiario extends Fragment {
                 Diario diario = ((DiarioAdapter) listView.getAdapter()).getItem(position);
                 removerDiario(diario.getId());
                 return true;
+            }
+        });
+
+        FloatingActionButton myFab = (FloatingActionButton) rootView.findViewById(R.id.addDia);
+        myFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addDia();
             }
         });
 
@@ -82,6 +95,16 @@ public class FragmentDiario extends Fragment {
         // atualiza lista
         updateListContent();
     }
+
+    public void addDia() {
+        Date data = new Date();
+
+        Diario restaurant = new Diario(0,0,3000,data);
+        restaurant.save();
+
+        updateListContent();
+    }
+
 
     // Função que atualiza a lista do Diário
     private void updateListContent() {
@@ -128,7 +151,7 @@ public class FragmentDiario extends Fragment {
             final Diario diario = getItem(position);
 
             TextView data = (TextView) convertView.findViewById(R.id.textView_data);
-            data.setText(String.valueOf(diario.getData()));
+            data.setText(String.valueOf(Utils.formatDateDia(diario.getData())));
 
             TextView consumidas = (TextView) convertView.findViewById(R.id.textViewConsumidas);
             consumidas.setText(String.valueOf(diario.getCaloriasConsumidas()));

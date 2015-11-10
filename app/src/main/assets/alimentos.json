@@ -1,0 +1,249 @@
+{
+  "alimento": [
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "1",
+      "nome": "Chocolate soda",
+      "caloria": "207"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "2",
+      "nome": "Club soda",
+      "caloria": "0"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "3",
+      "nome": "Cola",
+      "caloria": "155"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "4",
+      "nome": "Cream soda",
+      "caloria": "252"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "5",
+      "nome": "Ginger ale",
+      "caloria": "166"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "6",
+      "nome": "Grape soda",
+      "caloria": "160"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "7",
+      "nome": "Lemom-lime soda",
+      "caloria": "148"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "8",
+      "nome": "Orange soda",
+      "caloria": "238"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "9",
+      "nome": "Pepper-type soda",
+      "caloria": "201"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "10",
+      "nome": "Root beer",
+      "caloria": "202"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "11",
+      "nome": "Soda, no sugar",
+      "caloria": "9"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "1",
+      "id": "12",
+      "nome": "Tonic water",
+      "caloria": "114"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "1",
+      "nome": "Chocolate milk",
+      "caloria": "199"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "2",
+      "nome": "Chocolate milk(1% fat)",
+      "caloria": "149"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "3",
+      "nome": "Chocolate milk(2% fat)",
+      "caloria": "182"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "4",
+      "nome": "Chocolate milk, homemade",
+      "caloria": "154"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "5",
+      "nome": "Chocolate milkshake",
+      "caloria": "357"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "6",
+      "nome": "Strawberry shake",
+      "caloria": "319"
+    },
+    {
+      "idCategoria": "1",
+      "idSubCategoria": "2",
+      "id": "7",
+      "nome": "Vanilia shake",
+      "caloria": "105"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "1",
+      "nome": "Arm pot roast, no fat",
+      "caloria": "214"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "2",
+      "nome": "Arm pot roast, with fat",
+      "caloria": "302"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "3",
+      "nome": "Blade chuck roast, no fat",
+      "caloria": "263"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "4",
+      "nome": "Blade chuck roast, with fat",
+      "caloria": "363"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "5",
+      "nome": "Flat iron steak, no fat",
+      "caloria": "173"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "6",
+      "nome": "Flat iron steak, with fat",
+      "caloria": "184"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "7",
+      "nome": "Mock tender steak",
+      "caloria": "136"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "8",
+      "nome": "Shoulder pot roast, no fat",
+      "caloria": "147"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "9",
+      "nome": "Shoulder pot roast, with fat",
+      "caloria": "184"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "10",
+      "nome": "Shoulder steak, no fat",
+      "caloria": "242"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "1",
+      "id": "11",
+      "nome": "Shoulder steak, with fat",
+      "caloria": "231"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "2",
+      "id": "1",
+      "nome": "Braised short ribs, no fat",
+      "caloria": "295"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "2",
+      "id": "2",
+      "nome": "Braised short ribs, with fat",
+      "caloria": "471"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "2",
+      "id": "3",
+      "nome": "Rib roast, no fat",
+      "caloria": "229"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "2",
+      "id": "4",
+      "nome": "Rib roast, with fat",
+      "caloria": "358"
+    },
+    {
+      "idCategoria": "2",
+      "idSubCategoria": "2",
+      "id": "5",
+      "nome": "Rib-eye steak",
+      "caloria": "484"
+    }
+  ]
+}
