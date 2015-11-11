@@ -16,8 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.avellb155max.appcalorias.Classes.Alimentos;
 import com.example.avellb155max.appcalorias.Classes.Diario;
+import com.example.avellb155max.appcalorias.Model.AtividadesDiarias;
 import com.example.avellb155max.appcalorias.R;
 import com.example.avellb155max.appcalorias.Utils.Utils;
 
@@ -99,8 +99,11 @@ public class FragmentDiario extends Fragment {
     public void addDia() {
         Date data = new Date();
 
-        Diario restaurant = new Diario(0,0,3000,data);
-        restaurant.save();
+        AtividadesDiarias atividadesDiarias = new AtividadesDiarias("BIKE",300,5);
+        atividadesDiarias.save();
+
+        Diario diario = new Diario(0,0,3000,data,atividadesDiarias);
+        diario.save();
 
         updateListContent();
     }

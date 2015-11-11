@@ -1,236 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto">
-
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="8dp"
-            android:background="@color/colorContainer">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:fbutton="http://schemas.android.com/apk/res-auto">
 
-            <TextView
-                android:text="Cafe da manhã"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
-
-            <info.hoang8f.widget.FButton
-                android:id="@+id/buttonAlimentos1"
-                android:layout_width="155dp"
-                android:layout_height="47dp"
-                android:drawablePadding="0dp"
-                android:minHeight="80dp"
-                android:minWidth="250dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="20dp"
-                android:paddingTop="-5dp"
-                android:text="Alimentos"
-                android:textColor="@android:color/white"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="2dp"
-                fbutton:buttonColor="@color/colorAccent"
-                android:layout_toLeftOf="@+id/space2"
-                android:layout_toStartOf="@+id/space2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:layout_gravity="center_horizontal"/>
-
-            <TextView
-                android:text="Recomendado 702 - 983 KCAL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="8dp"
-            android:background="@color/colorContainer">
-
-            <TextView
-                android:text="Alomoço"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"/>
-
-            <info.hoang8f.widget.FButton
-                android:id="@+id/buttonAlimentos2"
-                android:layout_width="155dp"
-                android:layout_height="47dp"
-                android:drawablePadding="0dp"
-                android:minHeight="80dp"
-                android:minWidth="250dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="20dp"
-                android:paddingTop="-5dp"
-                android:text="Alimentos"
-                android:textColor="@android:color/white"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="2dp"
-                fbutton:buttonColor="@color/colorAccent"
-                android:layout_toLeftOf="@+id/space2"
-                android:layout_toStartOf="@+id/space2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:background="@color/colorContainer">
 
                 <TextView
-                    android:text="Recomendado 843 - 1124 KCAL"
+                    android:text="Cafe da manhã"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/buttonAlimentos1"
+                    android:layout_width="155dp"
+                    android:layout_height="47dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Alimentos"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="5dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="2dp"
+                    fbutton:buttonColor="@color/colorAccent"
+                    android:layout_toLeftOf="@+id/space2"
+                    android:layout_toStartOf="@+id/space2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:text="Recomendado 702 - 983 KCAL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="8dp"
-            android:background="@color/colorContainer">
+            </LinearLayout>
 
-            <TextView
-                android:text="Janta"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
-
-            <info.hoang8f.widget.FButton
-                android:id="@+id/buttonAlimentos3"
-                android:layout_width="155dp"
-                android:layout_height="47dp"
-                android:drawablePadding="0dp"
-                android:minHeight="80dp"
-                android:minWidth="250dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="20dp"
-                android:paddingTop="-5dp"
-                android:text="Alimentos"
-                android:textColor="@android:color/white"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="2dp"
-                fbutton:buttonColor="@color/colorAccent"
-                android:layout_toLeftOf="@+id/space2"
-                android:layout_toStartOf="@+id/space2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:background="@color/colorContainer">
 
                 <TextView
-                    android:text="Recomendado 1096 - 1443 KCAL"
+                    android:text="Alomoço"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/buttonAlimentos2"
+                    android:layout_width="155dp"
+                    android:layout_height="47dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Alimentos"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="5dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="2dp"
+                    fbutton:buttonColor="@color/colorAccent"
+                    android:layout_toLeftOf="@+id/space2"
+                    android:layout_toStartOf="@+id/space2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:text="Recomendado 843 - 1124 KCAL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:background="@color/colorContainer">
+
+                <TextView
+                    android:text="Janta"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/buttonAlimentos3"
+                    android:layout_width="155dp"
+                    android:layout_height="47dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Alimentos"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="5dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="2dp"
+                    fbutton:buttonColor="@color/colorAccent"
+                    android:layout_toLeftOf="@+id/space2"
+                    android:layout_toStartOf="@+id/space2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:text="Recomendado 1096 - 1443 KCAL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:background="@color/colorContainer">
+
+                <TextView
+                    android:text="Lanches"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/buttonAlimentos4"
+                    android:layout_width="155dp"
+                    android:layout_height="47dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Alimentos"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="5dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="2dp"
+                    fbutton:buttonColor="@color/colorAccent"
+                    android:layout_toLeftOf="@+id/space2"
+                    android:layout_toStartOf="@+id/space2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:text="Recomendado 0 - 562 KCAL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="8dp"
-            android:background="@color/colorContainer">
-
-            <TextView
-                android:text="Lanches"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"/>
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:background="@color/colorContainer">
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/buttonAlimentos4"
-                android:layout_width="155dp"
-                android:layout_height="47dp"
-                android:drawablePadding="0dp"
-                android:minHeight="80dp"
-                android:minWidth="250dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="20dp"
-                android:paddingTop="-5dp"
-                android:text="Alimentos"
-                android:textColor="@android:color/white"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="2dp"
-                fbutton:buttonColor="@color/colorAccent"
-                android:layout_toLeftOf="@+id/space2"
-                android:layout_toStartOf="@+id/space2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:text="Exercícios"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:text="Recomendado 0 - 562 KCAL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="8dp"
-            android:background="@color/colorContainer">
+                <ListView
+                    android:id="@+id/listExecicios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </ListView>
 
-            <TextView
-                android:text="Exercícios"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"/>
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/buttonAlimentos5"
+                    android:layout_width="155dp"
+                    android:layout_height="47dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Exercícios"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="5dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="2dp"
+                    fbutton:buttonColor="@color/colorAccent"
+                    android:layout_toLeftOf="@+id/space2"
+                    android:layout_toStartOf="@+id/space2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_horizontal" />
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/buttonAlimentos5"
-                android:layout_width="155dp"
-                android:layout_height="47dp"
-                android:drawablePadding="0dp"
-                android:minHeight="80dp"
-                android:minWidth="250dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="20dp"
-                android:paddingTop="-5dp"
-                android:text="Exercícios"
-                android:textColor="@android:color/white"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="2dp"
-                fbutton:buttonColor="@color/colorAccent"
-                android:layout_toLeftOf="@+id/space2"
-                android:layout_toStartOf="@+id/space2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:textSize="14dp"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:text="Recomendado 0 - 562 KCAL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-</LinearLayout>
+                <TextView
+                    android:text="Recomendado 0 - 562 KCAL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+    </LinearLayout>
+</ScrollView>

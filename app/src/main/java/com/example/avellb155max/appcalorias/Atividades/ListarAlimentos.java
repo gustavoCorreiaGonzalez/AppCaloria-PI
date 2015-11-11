@@ -29,9 +29,12 @@ public class ListarAlimentos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categoria);
+        setContentView(R.layout.activity_listar_alimentos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        String idCategoriaIntent = intent.getStringExtra("idCategoria");
 
         List<Alimentos> alimentos = new ArrayList<Alimentos>();
 
@@ -50,7 +53,10 @@ public class ListarAlimentos extends AppCompatActivity {
                 String nome = jo_inside.getString("nome");
                 String caloria = jo_inside.getString("caloria");
 
-                alimentos.add(new Alimentos(idCategoria, idSubCategoria, id, nome, caloria));
+                if(idCategoriaIntent.equals(idCategoria)) {
+                    alimentos.add(new Alimentos(idCategoria, idSubCategoria, id, nome, caloria));
+                }
+
                 m_li = new HashMap<String, String>();
                 m_li.put("idCategoria", idCategoria);
                 m_li.put("idSubCategoria", idSubCategoria);

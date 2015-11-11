@@ -1,5 +1,6 @@
 package com.example.avellb155max.appcalorias.Classes;
 
+import com.example.avellb155max.appcalorias.Model.AtividadesDiarias;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -14,25 +15,17 @@ public class Diario extends SugarRecord<Diario> {
     int caloriasQueimadas;
     int caloriasRestantes;
     Date data;
-    /*List<Alimentos> cafeDaManha;
-    List<Alimentos> almoco;
-    List<Alimentos> janta;
-    List<Alimentos> lanches;*/
+    AtividadesDiarias atividadesDiarias;
 
     public Diario(){
     }
 
-    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data/*, List<Alimentos> cafeDaManha,
-                    List<Alimentos> almoco, List<Alimentos> janta, List<Alimentos> lanches*/){
-
+    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data, AtividadesDiarias atividadesDiarias) {
         this.caloriasConsumidas = caloriasConsumidas;
         this.caloriasQueimadas = caloriasQueimadas;
         this.caloriasRestantes = caloriasRestantes;
         this.data = data;
-        /*this.cafeDaManha = cafeDaManha;
-        this.almoco = almoco;
-        this.janta = janta;
-        this.lanches = lanches;*/
+        this.atividadesDiarias = atividadesDiarias;
     }
 
     public int getCaloriasConsumidas() {
@@ -67,35 +60,27 @@ public class Diario extends SugarRecord<Diario> {
         this.data = data;
     }
 
-    /*public List<Alimentos> getCafeDaManha() {
-        return cafeDaManha;
+    public AtividadesDiarias getAtividadesDiarias() {
+        return atividadesDiarias;
     }
 
-    public void setCafeDaManha(List<Alimentos> cafeDaManha) {
-        this.cafeDaManha = cafeDaManha;
+    public void setAtividadesDiarias(AtividadesDiarias atividadesDiarias) {
+        this.atividadesDiarias = atividadesDiarias;
     }
 
-    public List<Alimentos> getAlmoco() {
-        return almoco;
-    }
+    public void AtualizarCalorias(long id){
+        Diario diario = Diario.findById(Diario.class,id);
 
-    public void setAlmoco(List<Alimentos> almoco) {
-        this.almoco = almoco;
-    }
+        if(diario.atividadesDiarias.getTipo() == 5){
+            diario.caloriasQueimadas = diario.caloriasQueimadas - diario.atividadesDiarias.getCaloria();
 
-    public List<Alimentos> getJanta() {
-        return janta;
-    }
+            diario.caloriasRestantes = diario.caloriasRestantes + diario.caloriasQueimadas;
+        } else {
+            diario.caloriasQueimadas = diario.caloriasQueimadas + diario.atividadesDiarias.getCaloria();
 
-    public void setJanta(List<Alimentos> janta) {
-        this.janta = janta;
-    }
+            diario.caloriasRestantes = diario.caloriasRestantes - diario.caloriasQueimadas;
+        }
 
-    public List<Alimentos> getLanches() {
-        return lanches;
+        diario.save();
     }
-
-    public void setLanches(List<Alimentos> lanches) {
-        this.lanches = lanches;
-    }*/
 }

@@ -16,4 +16,20 @@ public class DadosUsuario extends SugarRecord<DadosUsuario> {
         this.altura = altura;
         this.peso = peso;
     }
+
+    public String getAltura() {
+        return altura;
+    }
+
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
+    }
 }

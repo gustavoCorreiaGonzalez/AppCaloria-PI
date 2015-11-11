@@ -1,0 +1,99 @@
+{"Exercicios": [
+  {
+    "nomeDoExercicio": "Caminhada",
+    "caloriaGasta": "80 kcal",
+    "tempoDeExercicio":"30min",
+    "id":"1"
+
+  },
+
+  {
+    "nomeDoExercicio": "Corrida",
+    "caloriaGasta": "125 kcal",
+    "tempoDeExercicio":"30min",
+    "id":"2"
+
+  },
+
+  {
+    "nomeDoExercicio": "Futebol",
+    "caloriaGasta": "180 kcal",
+    "tempoDeExercicio":"30min",
+    "id":"3"
+
+  },
+
+  {
+    "nomeDoExercicio": "Basquete",
+    "caloriaGasta":"170 Kcal",
+    "tempoDeExercicio": "30min",
+    "id":"4"
+
+  },
+
+  {
+    "nomeDoExercicio": "Bicicleta",
+    "caloriaGasta": "70 Kcal",
+    "tempoDeExercicio":"30min",
+    "id": "5"
+
+  },
+
+  {
+    "nomeDoExercicio": "Flexões",
+    "caloriaGasta": "37 Kcal",
+    "tempoDeExercicio":"30min",
+    "id": "6"
+
+  },
+
+  {
+    "nomeDoExercicio": "Polichinelos",
+    "caloriaGasta": "25 Kcal",
+    "tempoDeExercicio":"30min",
+    "id": "7"
+
+  },
+
+  {
+    "nomeDoExercicio" :"Dança",
+    "caloriaGasta":"30 Kcal",
+    "tempoDeExercicio":"30min",
+    "id":"8"
+  },
+
+  {
+    "nomeDoExercicio" :"Natação",
+    "caloriaGasta":"110 Kcal",
+    "tempoDeExercicio":"30min",
+    "id":"9"
+  },
+
+
+  {
+    "nomeDoExercicio" :"Capoeira",
+    "caloriaGasta":"80 Kcal",
+    "tempoDeExercicio":"30min",
+    "id":"10"
+  },
+
+
+  {
+    "nomeDoExercicio" : "Rugby",
+    "caloriaGasta":"1 Kcal",
+    "tempoDeExercicio":"30min",
+    "id":"11"
+  },
+
+
+
+  {
+    "nomeDoExercicio" : "Handbol",
+    "caloriaGasta": "100 kcal" ,
+    "tempoDeExercicio": "30min",
+    "id":"12"
+  }
+]}
+
+
+

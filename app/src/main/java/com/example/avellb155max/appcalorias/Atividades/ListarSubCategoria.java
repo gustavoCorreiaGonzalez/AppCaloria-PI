@@ -28,6 +28,11 @@ public class ListarSubCategoria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_sub_categoria);
 
+        Intent intent = getIntent();
+        String idCategoriaIntent = intent.getStringExtra("idCategoria");
+
+        System.out.println("VINDOOOOO idCategoria: " + idCategoriaIntent);
+
         List<SubCategoria> subCategorias = new ArrayList<SubCategoria>();
 
         try {
@@ -44,7 +49,12 @@ public class ListarSubCategoria extends AppCompatActivity {
                 String id = jo_inside.getString("id");
                 String nome = jo_inside.getString("nome");
 
-                subCategorias.add(new SubCategoria(idCategoria, id, nome));
+                System.out.println("idCategoria JSOMMMM: " + idCategoria);
+
+                if(idCategoriaIntent.equals(idCategoria)) {
+                    subCategorias.add(new SubCategoria(idCategoria, id, nome));
+                }
+
                 System.out.println("id: " + id);
                 System.out.println("nome: " + nome);
                 m_li = new HashMap<String, String>();
@@ -63,15 +73,14 @@ public class ListarSubCategoria extends AppCompatActivity {
         Lista.setAdapter(adapter);
         Lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Intent i = new Intent(ListarSubCategoria.this, ListarAlimentos.class);
-                startActivity(i);
-            }
-        });
+                // Passa o ID da categoria para listar as SubCategorias
+                Intent intent = new Intent(v.getContext(), ListarAlimentos.class);
+                Bundle params = new Bundle();
 
-        Lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                params.putString("idCategoria", String.valueOf(position+1));
+                System.out.println("INDOOOO idCategoria: " + position);
+                intent.putExtras(params);
+                startActivity(intent);
             }
         });
     }

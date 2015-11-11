@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.avellb155max.appcalorias.Classes.DadosUsuario;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -18,6 +19,8 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import java.util.List;
 
 /**
  * Created by gustavo on 07/11/15.
@@ -32,10 +35,17 @@ public class FragmentLogin  extends Fragment {
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
+            List<DadosUsuario> items = DadosUsuario.listAll(DadosUsuario.class);
 
-            // redireciona para o app
-            Intent i = new Intent(getActivity(), MainActivity.class);
-            startActivity(i);
+            if(items.isEmpty()) {
+                // redireciona para o cadastro de peso e altura
+                Intent i = new Intent(getActivity(), CadastrarDadosPessoais.class);
+                startActivity(i);
+            } else {
+                // redireciona para o app
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+            }
 
         }
 
