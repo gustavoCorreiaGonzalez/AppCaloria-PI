@@ -1,20 +1,14 @@
 package com.example.avellb155max.appcalorias.Fragmentos;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.avellb155max.appcalorias.Atividades.Categoria;
-import com.example.avellb155max.appcalorias.Classes.Diario;
-import com.example.avellb155max.appcalorias.MainActivity;
+import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
 import com.example.avellb155max.appcalorias.R;
 
 /**
@@ -59,10 +53,13 @@ public class FragmentRefeicoes extends Fragment{
 
         button1 = (Button) rootView.findViewById(R.id.buttonAlimentos1);
 
+
+
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), Categoria.class);
+                Intent i = new Intent(getActivity(), ListarCategoria.class);
                 startActivity(i);
             }
         });

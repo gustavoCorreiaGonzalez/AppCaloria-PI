@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:fitsSystemWindows="true"
-    tools:context="com.example.avellb155max.appcalorias.Atividades.ListarCategoria">
+    tools:context="com.example.avellb155max.appcalorias.Atividades.ListarAlimentos">
 
     <RelativeLayout
         android:orientation="vertical"
@@ -22,7 +22,7 @@
             android:layout_alignParentStart="true" />
 
         <ListView
-            android:id="@+id/listaCategoria"
+            android:id="@+id/listaAlimentos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar">

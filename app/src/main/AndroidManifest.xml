@@ -52,8 +52,15 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name=".Atividades.Categoria"
+            android:name=".Atividades.ListarCategoria"
             android:label="@string/title_activity_categoria"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".Atividades.ListarSubCategoria" >
+        </activity>
+        <activity
+            android:name=".Atividades.ListarAlimentos"
+            android:label="@string/title_activity_listar_alimentos"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

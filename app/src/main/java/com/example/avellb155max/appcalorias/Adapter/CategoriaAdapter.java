@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by gustavo on 07/11/15.
+ * Created by gustavo on 10/11/15.
  */
-public class AlimentosAdapter extends ArrayAdapter<Alimentos>{
+public class CategoriaAdapter extends  ArrayAdapter<Categoria>{
     Context context;
     int resource;
-    List<Alimentos> alimentos = new ArrayList<>();
+    List<Categoria> categoria = new ArrayList<>();
 
-    public AlimentosAdapter(Context context, int resource, List<Alimentos> alimentos) {
-        super(context, resource, alimentos);
+    public CategoriaAdapter(Context context, int resource, List<Categoria> categoria) {
+        super(context, resource, categoria);
         this.resource = resource;
         this.context = context;
-        this.alimentos = alimentos;
+        this.categoria = categoria;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -35,16 +35,14 @@ public class AlimentosAdapter extends ArrayAdapter<Alimentos>{
             convertView = inflater.inflate(resource, parent, false);
         }
 
-        Alimentos item = alimentos.get(position);
+        Categoria item = categoria.get(position);
 
         if(item != null){
-            TextView id = (TextView) convertView.findViewById(R.id.alimentoId);
-            TextView nome = (TextView) convertView.findViewById(R.id.alimentoNome);
-            TextView caloria = (TextView) convertView.findViewById(R.id.alimentoCaloria);
+            TextView id = (TextView) convertView.findViewById(R.id.categoriaId);
+            TextView nome = (TextView) convertView.findViewById(R.id.categoriaNome);
 
             id.setText(item.getId());
             nome.setText(item.getNome());
-            caloria.setText(item.getCaloria());
         }
         return convertView;
     }
