@@ -132,7 +132,6 @@ public class FragmentRefeicoes extends Fragment{
                 params.putString("idTipo", String.valueOf(5));
                 intent.putExtras(params);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 

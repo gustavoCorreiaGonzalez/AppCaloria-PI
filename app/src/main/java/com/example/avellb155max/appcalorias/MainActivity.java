@@ -1,26 +1,26 @@
 package com.example.avellb155max.appcalorias;
 
 import android.app.Fragment;
-import android.graphics.Color;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 ;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.CompoundButton;
 
-import com.example.avellb155max.appcalorias.Fragmentos.FragmentAtividadeFisica;
+import com.example.avellb155max.appcalorias.Atividades.ListarAtividade;
+import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDiario;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentPerformance;
-import com.example.avellb155max.appcalorias.Fragmentos.FragmentRefeicoes;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.holder.StringHolder;
+import com.mikepenz.materialdrawer.interfaces.OnCheckedChangeListener;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
@@ -28,6 +28,8 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.mikepenz.materialdrawer.model.interfaces.Nameable;
+import com.mikepenz.materialdrawer.util.RecyclerViewCacheUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         // Troca o nome da ToolBar
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.drawer_item_compact_header);
 
         // Crição de profiles
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         // Criação do Drawer
         result = new DrawerBuilder()
                 .withActivity(this)
+                .withToolbar(toolbar)
+                .withHasStableIds(true)
                 .withAccountHeader(headerResult) // Setando o account header no drawer
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.drawer_item_user).withIcon(FontAwesome.Icon.faw_user),
@@ -75,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
                         new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                @Override
-                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                    switch (position) {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        switch (position) {
                             case 1:
                                 Fragment fragment_user = new FragmentPerformance();
                                 getFragmentManager().beginTransaction()
@@ -89,14 +93,24 @@ public class MainActivity extends AppCompatActivity {
                                         .replace(R.id.fragment_container, fragment_diario).addToBackStack(null).commit();
                                 break;
                             case 3:
-                                Fragment fragment_atividade = new FragmentAtividadeFisica();
+                                /*Fragment fragment_atividade = new FragmentAtividadeFisica();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.fragment_container, fragment_atividade).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_atividade).addToBackStack(null).commit();*/
+
+                                Intent i = new Intent(view.getContext(), ListarCategoria.class);
+                                startActivity(i);
                                 break;
                             case 4:
-                                Fragment fragment_refeicao = new FragmentRefeicoes();
+                                /*Fragment fragment_refeicao = new FragmentRefeicoes();
                                 getFragmentManager().beginTransaction()
-                                        .replace(R.id.fragment_container, fragment_refeicao).addToBackStack(null).commit();
+                                        .replace(R.id.fragment_container, fragment_refeicao).addToBackStack(null).commit();*/
+
+                                Intent i2 = new Intent(view.getContext(), ListarAtividade.class);
+                                Bundle params = new Bundle();
+
+                                params.putString("idTipo", String.valueOf(5));
+                                i2.putExtras(params);
+                                startActivity(i2);
                                 break;
                         }
                         return false;
@@ -104,14 +118,32 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
+        //if you have many different types of DrawerItems you can magically pre-cache those items to get a better scroll performance
+        //make sure to init the cache after the DrawerBuilder was created as this will first clear the cache to make sure no old elements are in
+        RecyclerViewCacheUtil.getInstance().withCacheSize(2).init(result);
+
+        //only set the active selection or active profile if we do not recreate the activity
+        if (savedInstanceState == null) {
+            // set the selection to the item with the identifier 11
+            result.setSelection(21, false);
+
+            //set the active profile
+            headerResult.setActiveProfile(profile);
+        }
+
+        result.updateBadge(4, new StringHolder(10 + ""));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton buttonView, boolean isChecked) {
+            if (drawerItem instanceof Nameable) {
+                Log.i("material-drawer", "DrawerItem: " + ((Nameable) drawerItem).getName() + " - toggleChecked: " + isChecked);
+            } else {
+                Log.i("material-drawer", "toggleChecked: " + isChecked);
+            }
+        }
+    };
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -120,19 +152,6 @@ public class MainActivity extends AppCompatActivity {
         //add the values which need to be saved from the accountHeader to the bundle
         outState = headerResult.saveInstanceState(outState);
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //handle the click on the back arrow click
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @Override
@@ -145,33 +164,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class ActionBarCallBack implements ActionMode.Callback {
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            return false;
-        }
-
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setStatusBarColor(com.mikepenz.materialize.util.UIUtils.getThemeColorFromAttrOrRes(MainActivity.this, R.attr.colorPrimaryDark, R.color.material_drawer_primary_dark));
-            }
-
-            //mode.getMenuInflater().inflate(R.menu.cab, menu);
-            return true;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setStatusBarColor(Color.TRANSPARENT);
-            }
-        }
-
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-    }
 }
+
+
