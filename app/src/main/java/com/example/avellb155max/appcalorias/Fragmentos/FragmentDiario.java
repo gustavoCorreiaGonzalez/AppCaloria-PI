@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +31,8 @@ import java.util.List;
 public class FragmentDiario extends Fragment {
     private ListView listView;
 
-    public static FragmentPerformance newInstance(String param1, String param2) {
-        FragmentPerformance fragment = new FragmentPerformance();
+    public static FragmentDiario newInstance(String param1, String param2) {
+        FragmentDiario fragment = new FragmentDiario();
 
         return fragment;
     }

@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.avellb155max.appcalorias.Adapter.Alimentos;
 import com.example.avellb155max.appcalorias.Adapter.AlimentosAdapter;
@@ -36,7 +38,7 @@ public class ListarAlimentos extends AppCompatActivity {
         Intent intent = getIntent();
         String idCategoriaIntent = intent.getStringExtra("idCategoria");
 
-        List<Alimentos> alimentos = new ArrayList<Alimentos>();
+        final List<Alimentos> Alimentos = new ArrayList<Alimentos>();
 
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
@@ -54,7 +56,7 @@ public class ListarAlimentos extends AppCompatActivity {
                 String caloria = jo_inside.getString("caloria");
 
                 if(idCategoriaIntent.equals(idCategoria)) {
-                    alimentos.add(new Alimentos(idCategoria, idSubCategoria, id, nome, caloria));
+                    Alimentos.add(new Alimentos(idCategoria, idSubCategoria, id, nome, caloria));
                 }
 
                 m_li = new HashMap<String, String>();
@@ -70,12 +72,17 @@ public class ListarAlimentos extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        AlimentosAdapter adapter = new AlimentosAdapter(this, R.layout.activity_listar_alimentos_item, alimentos);
+        AlimentosAdapter adapter = new AlimentosAdapter(this, R.layout.activity_listar_alimentos_item, Alimentos);
         ListView Lista = (ListView) findViewById(R.id.listaAlimentos);
         Lista.setAdapter(adapter);
         Lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Alimentos alimentos = Alimentos.get(position);
 
+                TextView nome = (TextView) findViewById(R.id.alimentoNome);
+                TextView caloria = (TextView) findViewById(R.id.alimentoCaloria);
+
+                //Toast.makeText(, "O treino foi removido!", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,32 +1,35 @@
 package com.example.avellb155max.appcalorias.Fragmentos;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.avellb155max.appcalorias.Classes.DadosUsuario;
-import com.example.avellb155max.appcalorias.Classes.Diario;
 import com.example.avellb155max.appcalorias.R;
 
 /**
  * Created by Paulo on 18/11/2015.
  */
+
 public class FragmentDadosPessoais extends Fragment {
     private TextView imc;
     private EditText peso;
     private EditText altura;
     private float valorImc;
+
+    public static FragmentDadosPessoais newInstance(String param1, String param2) {
+        FragmentDadosPessoais fragment = new FragmentDadosPessoais();
+
+        return fragment;
+    }
+
     public FragmentDadosPessoais()  {
 
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,14 +44,15 @@ public class FragmentDadosPessoais extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_dados_pessoais, container, false);
 
         DadosUsuario dados = DadosUsuario.findById(DadosUsuario.class, (long) 1);
-        EditText peso = (EditText) rootView.findViewById(R.id.peso);
-        peso.setText(dados.getPeso());
-        EditText altura = (EditText) rootView.findViewById(R.id.altura);
-        altura.setText(dados.getAltura());
-        TextView imc = (TextView) rootView.findViewById(R.id.imc);
-        imc.setText(this.getValorImc(dados.getPeso(),dados.getAltura()).toString());
-        // manipulador de evento de clique na lista
 
+        peso = (EditText) rootView.findViewById(R.id.peso);
+        peso.setText(dados.getPeso());
+
+        altura = (EditText) rootView.findViewById(R.id.altura);
+        altura.setText(dados.getAltura());
+
+        imc = (TextView) rootView.findViewById(R.id.imc);
+        imc.setText(this.getValorImc(dados.getPeso(),dados.getAltura()).toString());
 
         return rootView;
     }
@@ -66,4 +70,8 @@ public class FragmentDadosPessoais extends Fragment {
         return imc;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 }

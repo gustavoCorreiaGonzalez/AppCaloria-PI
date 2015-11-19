@@ -12,8 +12,8 @@ import android.widget.CompoundButton;
 
 import com.example.avellb155max.appcalorias.Atividades.ListarAtividade;
 import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
+import com.example.avellb155max.appcalorias.Fragmentos.FragmentDadosPessoais;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDiario;
-import com.example.avellb155max.appcalorias.Fragmentos.FragmentPerformance;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         switch (position) {
                             case 1:
-                                Fragment fragment_user = new FragmentPerformance();
+                                Fragment fragment_user = new FragmentDadosPessoais();
                                 getFragmentManager().beginTransaction()
                                         .replace(R.id.fragment_container, fragment_user).addToBackStack(null).commit();
                                 break;
