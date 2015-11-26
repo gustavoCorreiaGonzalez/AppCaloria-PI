@@ -46,26 +46,26 @@ public class FragmentDadosPessoais extends Fragment {
         DadosUsuario dados = DadosUsuario.findById(DadosUsuario.class, (long) 1);
 
         peso = (EditText) rootView.findViewById(R.id.peso);
-        peso.setText(dados.getPeso());
+
+        peso.setText(String.valueOf(dados.getPeso()));
 
         altura = (EditText) rootView.findViewById(R.id.altura);
-        altura.setText(dados.getAltura());
+        altura.setText(String.valueOf(dados.getAltura()));
 
         imc = (TextView) rootView.findViewById(R.id.imc);
-        imc.setText(this.getValorImc(dados.getPeso(),dados.getAltura()).toString());
+        imc.setText(String.valueOf(this.getValorImc(dados.getPeso(), dados.getAltura())));
 
         return rootView;
     }
 
-    public Double getValorImc(String p, String a) {
-        Double imc;
-        Double peso;
-        Double altura;
+    public double getValorImc(double p, double a) {
+        double imc;
+        double peso;
+        double altura;
+        altura = Math.pow(a,2.0);
+        peso = p;
 
-        peso = Double.parseDouble(p);
-        altura = Double.parseDouble(a);
-
-        imc = peso / (Math.pow(altura,2));
+        imc = (peso / altura);
 
         return imc;
     }

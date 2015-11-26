@@ -29,7 +29,7 @@ public class CadastrarDadosPessoais extends AppCompatActivity {
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DadosUsuario dadosUsuario = new DadosUsuario(peso.getText().toString(),altura.getText().toString());
+                DadosUsuario dadosUsuario = new DadosUsuario(Double.parseDouble(altura.getText().toString()), (Double.parseDouble(peso.getText().toString())));
                 dadosUsuario.save();
 
                 // redireciona para o app
