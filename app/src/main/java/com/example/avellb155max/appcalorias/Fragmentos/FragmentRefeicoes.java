@@ -12,26 +12,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.avellb155max.appcalorias.Atividades.ListarAtividade;
+import com.example.avellb155max.appcalorias.Atividades.ListarAtividades;
+import com.example.avellb155max.appcalorias.Atividades.ListarExercicios;
 import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
-import com.example.avellb155max.appcalorias.CadastrarDadosPessoais;
-import com.example.avellb155max.appcalorias.Model.AtividadesDiarias;
+import com.example.avellb155max.appcalorias.Classes.ItensDiario;
 import com.example.avellb155max.appcalorias.R;
 
-import java.sql.CallableStatement;
 import java.util.List;
 
 /**
  * Created by gustavo on 24/10/15.
  */
 public class FragmentRefeicoes extends Fragment{
-    private long idDiario;
+    public long idDiario;
     Button button1;
     Button button2;
     Button button3;
     Button button4;
     Button button5;
-    ListView listView5;
 
     public static FragmentRefeicoes newInstance(final long idDiario) {
         FragmentRefeicoes fragment = new FragmentRefeicoes();
@@ -63,107 +61,86 @@ public class FragmentRefeicoes extends Fragment{
 
         View rootView = inflater.inflate(R.layout.fragment_refeicoes, container, false);
 
-
-        listView5 = (ListView) rootView.findViewById(R.id.listExecicios);
-
-        List<AtividadesDiarias> items = AtividadesDiarias.listAll(AtividadesDiarias.class);
-
-        RefeicoesAdapter adapter = new RefeicoesAdapter(getActivity(), items);
-        listView5.setAdapter(adapter);
-        
+        // Café da Manhã
         button1 = (Button) rootView.findViewById(R.id.buttonAlimentos1);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ListarCategoria.class);
-                startActivity(i);
+                Intent intent = new Intent(getActivity(), ListarAtividades.class);
+                Bundle params = new Bundle();
+
+                params.putString("idDiario", String.valueOf(idDiario));
+                params.putString("idTipo", String.valueOf(1));
+                intent.putExtras(params);
+                startActivity(intent);
             }
         });
 
+        // Almoço
         button2 = (Button) rootView.findViewById(R.id.buttonAlimentos2);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ListarCategoria.class);
-                startActivity(i);
+                Intent intent = new Intent(getActivity(), ListarAtividades.class);
+                Bundle params = new Bundle();
+
+                params.putString("idDiario", String.valueOf(idDiario));
+                params.putString("idTipo", String.valueOf(2));
+                intent.putExtras(params);
+                startActivity(intent);
             }
         });
 
+        // Janta
         button3 = (Button) rootView.findViewById(R.id.buttonAlimentos3);
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ListarCategoria.class);
-                startActivity(i);
+                Intent intent = new Intent(getActivity(), ListarAtividades.class);
+                Bundle params = new Bundle();
+
+                params.putString("idDiario", String.valueOf(idDiario));
+                params.putString("idTipo", String.valueOf(3));
+                intent.putExtras(params);
+                startActivity(intent);
             }
         });
 
-        button3 = (Button) rootView.findViewById(R.id.buttonAlimentos3);
-
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ListarCategoria.class);
-                startActivity(i);
-            }
-        });
-
+        // Lanches
         button4 = (Button) rootView.findViewById(R.id.buttonAlimentos4);
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ListarCategoria.class);
-                startActivity(i);
+                Intent intent = new Intent(getActivity(), ListarAtividades.class);
+                Bundle params = new Bundle();
+
+                params.putString("idDiario", String.valueOf(idDiario));
+                params.putString("idTipo", String.valueOf(4));
+                intent.putExtras(params);
+                startActivity(intent);
             }
         });
 
+        // Exercícios
         button5 = (Button) rootView.findViewById(R.id.buttonAlimentos5);
 
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ListarAtividade.class);
+                Intent intent = new Intent(getActivity(), ListarAtividades.class);
                 Bundle params = new Bundle();
 
+                params.putString("idDiario", String.valueOf(idDiario));
                 params.putString("idTipo", String.valueOf(5));
                 intent.putExtras(params);
                 startActivity(intent);
             }
         });
 
-        // Inflate the layout for this fragment
         return rootView;
-    }
-
-    private class RefeicoesAdapter extends ArrayAdapter<AtividadesDiarias> {
-
-        public RefeicoesAdapter(Context context, List<AtividadesDiarias> items) {
-            super(context, android.R.layout.simple_list_item_1, items);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            // se nao recebermos uma view, infla uma
-            if (null == convertView) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_refeicoes_itens, null);
-            }
-
-            AtividadesDiarias atividadesDiarias = getItem(position);
-
-            TextView id = (TextView) convertView.findViewById(R.id.idListaRefeicoes);
-            id.setText(String.valueOf(atividadesDiarias.getId()));
-
-            TextView nome = (TextView) convertView.findViewById(R.id.refeicoesNome);
-            nome.setText(String.valueOf(atividadesDiarias.getNome()));
-
-            TextView caloria = (TextView) convertView.findViewById(R.id.refeicoesCalorias);
-            caloria.setText(String.valueOf(atividadesDiarias.getCaloria()));
-
-            return convertView;
-        }
     }
 }

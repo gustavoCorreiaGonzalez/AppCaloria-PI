@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    tools:context="com.example.avellb155max.appcalorias.Atividades.ListarAtividades"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:text="Título Tipo"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="373dp"
+            android:id="@+id/listViewAtividade"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/buttonAdicionarAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawablePadding="0dp"
+        android:minHeight="80dp"
+        android:minWidth="250dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp"
+        android:paddingTop="-5dp"
+        android:text="Adicionar"
+        android:textColor="@android:color/white"
+        fbutton:cornerRadius="5dp"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="2dp"
+        fbutton:buttonColor="@color/colorAccent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textSize="14dp" />
+</LinearLayout>

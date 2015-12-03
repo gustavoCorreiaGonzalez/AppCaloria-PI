@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 
-import com.example.avellb155max.appcalorias.Atividades.ListarAtividade;
+import com.example.avellb155max.appcalorias.Atividades.ListarExercicios;
 import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDadosPessoais;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDiario;
@@ -78,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.drawer_item_user).withIcon(FontAwesome.Icon.faw_user),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_Diary).withIcon(FontAwesome.Icon.faw_book),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_physical_activities).withIcon(FontAwesome.Icon.faw_bicycle),
-                        new PrimaryDrawerItem().withName(R.string.drawer_item_physical_meal).withIcon(FontAwesome.Icon.faw_cutlery),
 
                         new SectionDrawerItem().withName(R.string.drawer_item_section_header),
                         new SecondaryDrawerItem().withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_cog)
@@ -97,26 +95,6 @@ public class MainActivity extends AppCompatActivity {
                                 Fragment fragment_diario = new FragmentDiario();
                                 getFragmentManager().beginTransaction()
                                         .replace(R.id.fragment_container, fragment_diario).addToBackStack(null).commit();
-                                break;
-                            case 3:
-                                /*Fragment fragment_atividade = new FragmentAtividadeFisica();
-                                getFragmentManager().beginTransaction()
-                                        .replace(R.id.fragment_container, fragment_atividade).addToBackStack(null).commit();*/
-
-                                Intent i = new Intent(view.getContext(), ListarCategoria.class);
-                                startActivity(i);
-                                break;
-                            case 4:
-                                /*Fragment fragment_refeicao = new FragmentRefeicoes();
-                                getFragmentManager().beginTransaction()
-                                        .replace(R.id.fragment_container, fragment_refeicao).addToBackStack(null).commit();*/
-
-                                Intent i2 = new Intent(view.getContext(), ListarAtividade.class);
-                                Bundle params = new Bundle();
-
-                                params.putString("idTipo", String.valueOf(5));
-                                i2.putExtras(params);
-                                startActivity(i2);
                                 break;
                         }
                         return false;

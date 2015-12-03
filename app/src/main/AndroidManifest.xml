@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.avellb155max.appcalorias" >
+    package="com.example.avellb155max.appcalorias">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon" >
+        tools:replace="android:icon">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
@@ -21,8 +21,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="DATABASE"
@@ -39,7 +38,7 @@
 
         <activity
             android:name=".ActivityLogin"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,19 +53,15 @@
         <activity
             android:name=".Atividades.ListarCategoria"
             android:label="@string/title_activity_categoria"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name=".Atividades.ListarSubCategoria" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Atividades.ListarSubCategoria"></activity>
         <activity
             android:name=".Atividades.ListarAlimentos"
             android:label="@string/title_activity_listar_alimentos"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name=".Atividades.ListarAtividade" >
-        </activity>
-        <activity android:name=".CadastrarDadosPessoais" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Atividades.ListarExercicios"></activity>
+        <activity android:name=".CadastrarDadosPessoais"></activity>
+        <activity android:name=".Atividades.ListarAtividades"></activity>
     </application>
 
 </manifest>

@@ -16,11 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.avellb155max.appcalorias.Classes.Diario;
-import com.example.avellb155max.appcalorias.Model.AtividadesDiarias;
 import com.example.avellb155max.appcalorias.R;
 import com.example.avellb155max.appcalorias.Utils.Utils;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -55,7 +53,7 @@ public class FragmentDiario extends Fragment {
 
         listView = (ListView) rootView.findViewById(R.id.listViewDiario);
 
-        // manipulador de evento de clique na lista
+        // Adiciona
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Diario diario = ((DiarioAdapter) listView.getAdapter()).getItem(position);
@@ -97,11 +95,7 @@ public class FragmentDiario extends Fragment {
 
     public void addDia() {
         Date data = new Date();
-
-        AtividadesDiarias atividadesDiarias = new AtividadesDiarias("BIKE",300,5);
-        atividadesDiarias.save();
-
-        Diario diario = new Diario(0,0,3000,data,atividadesDiarias);
+        Diario diario = new Diario(0,0,3000,data,null);
         diario.save();
 
         updateListContent();

@@ -1,4 +1,4 @@
-package com.example.avellb155max.appcalorias.Model;
+package com.example.avellb155max.appcalorias.Classes;
 
 import com.orm.SugarRecord;
 
