@@ -44,9 +44,9 @@ public class AtividadeFisicaAdapter extends ArrayAdapter<AtividadeFisica> {
             TextView tempo = (TextView) convertView.findViewById(R.id.textViewExercicio_tempo);
 
             id.setText(item.getId());
-            nome.setText(item.getNomeDoExercicio());
-            caloria.setText(item.getCaloriaGasta());
-            tempo.setText(item.getTempoDeExercicio());
+            nome.setText(item.getNome());
+            caloria.setText(item.getCaloria());
+            tempo.setText(item.getTempo());
         }
         return convertView;
     }

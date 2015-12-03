@@ -1,10 +1,8 @@
 package com.example.avellb155max.appcalorias.Classes;
 
-import com.example.avellb155max.appcalorias.Model.AtividadesDiarias;
 import com.orm.SugarRecord;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by gustavo on 04/11/15.
@@ -15,17 +13,17 @@ public class Diario extends SugarRecord<Diario> {
     int caloriasQueimadas;
     int caloriasRestantes;
     Date data;
-    AtividadesDiarias atividadesDiarias;
+    ItensDiario itensDiario;
 
     public Diario(){
     }
 
-    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data, AtividadesDiarias atividadesDiarias) {
+    public Diario(int caloriasConsumidas, int caloriasQueimadas, int caloriasRestantes, Date data, ItensDiario itensDiario) {
         this.caloriasConsumidas = caloriasConsumidas;
         this.caloriasQueimadas = caloriasQueimadas;
         this.caloriasRestantes = caloriasRestantes;
         this.data = data;
-        this.atividadesDiarias = atividadesDiarias;
+        this.itensDiario = itensDiario;
     }
 
     public int getCaloriasConsumidas() {
@@ -60,18 +58,18 @@ public class Diario extends SugarRecord<Diario> {
         this.data = data;
     }
 
-    public AtividadesDiarias getAtividadesDiarias() {
-        return atividadesDiarias;
+    public ItensDiario getItensDiario() {
+        return itensDiario;
     }
 
-    public void setAtividadesDiarias(AtividadesDiarias atividadesDiarias) {
-        this.atividadesDiarias = atividadesDiarias;
+    public void setItensDiario(ItensDiario itensDiario) {
+        this.itensDiario = itensDiario;
     }
 
-    public void AtualizarCalorias(long id){
-        Diario diario = Diario.findById(Diario.class,id);
+    /*public void AtualizarCalorias(long idDiario){
+        Diario diario = Diario.findById(Diario.class,idDiario);
 
-        if(diario.atividadesDiarias.getTipo() == 5){
+        if(atividadesDiarias.getTipo() == 5){
             diario.caloriasQueimadas = diario.caloriasQueimadas - diario.atividadesDiarias.getCaloria();
 
             diario.caloriasRestantes = diario.caloriasRestantes + diario.caloriasQueimadas;
@@ -82,5 +80,5 @@ public class Diario extends SugarRecord<Diario> {
         }
 
         diario.save();
-    }
+    }*/
 }

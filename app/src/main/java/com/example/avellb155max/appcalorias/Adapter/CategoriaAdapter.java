@@ -38,8 +38,8 @@ public class CategoriaAdapter extends  ArrayAdapter<Categoria>{
         Categoria item = categoria.get(position);
 
         if(item != null){
-            TextView id = (TextView) convertView.findViewById(R.id.categoriaId);
-            TextView nome = (TextView) convertView.findViewById(R.id.categoriaNome);
+            TextView id = (TextView) convertView.findViewById(R.id.idElemento);
+            TextView nome = (TextView) convertView.findViewById(R.id.nomeElemento);
 
             id.setText(item.getId());
             nome.setText(item.getNome());

@@ -5,15 +5,15 @@ package com.example.avellb155max.appcalorias.Adapter;
  */
 public class AtividadeFisica {
     public String id;
-    public String nomeDoExercicio;
-    public String caloriaGasta;
-    public String tempoDeExercicio;
+    public String nome;
+    public String caloria;
+    public String tempo;
 
-    public AtividadeFisica(String id, String nomeDoExercicio, String caloriaGasta, String tempoDeExercicio) {
+    public AtividadeFisica(String id, String nome, String caloria, String tempo) {
         this.id = id;
-        this.nomeDoExercicio = nomeDoExercicio;
-        this.caloriaGasta = caloriaGasta;
-        this.tempoDeExercicio = tempoDeExercicio;
+        this.nome = nome;
+        this.caloria = caloria;
+        this.tempo = tempo;
     }
 
     public String getId() {
@@ -24,28 +24,28 @@ public class AtividadeFisica {
         this.id = id;
     }
 
-    public String getNomeDoExercicio() {
-        return nomeDoExercicio;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeDoExercicio(String nomeDoExercicio) {
-        this.nomeDoExercicio = nomeDoExercicio;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCaloriaGasta() {
-        return caloriaGasta;
+    public String getCaloria() {
+        return caloria;
     }
 
-    public void setCaloriaGasta(String caloriaGasta) {
-        this.caloriaGasta = caloriaGasta;
+    public void setCaloria(String caloria) {
+        this.caloria = caloria;
     }
 
-    public String getTempoDeExercicio() {
-        return tempoDeExercicio;
+    public String getTempo() {
+        return tempo;
     }
 
-    public void setTempoDeExercicio(String tempoDeExercicio) {
-        this.tempoDeExercicio = tempoDeExercicio;
+    public void setTempo(String tempo) {
+        this.tempo = tempo;
     }
 }
 

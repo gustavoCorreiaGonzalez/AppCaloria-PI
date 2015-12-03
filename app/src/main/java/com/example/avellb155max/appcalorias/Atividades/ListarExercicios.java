@@ -79,7 +79,7 @@ public class ListarExercicios extends AppCompatActivity {
 
                 Diario diario = Diario.findById(Diario.class, Long.valueOf(idDiario));
 
-                ItensDiario itensDiario = new ItensDiario(diario,atividadesDiarias);
+                ItensDiario itensDiario = new ItensDiario(diario,atividadesDiarias,Integer.valueOf(idTipo));
                 itensDiario.save();
 
                 Toast.makeText(ListarExercicios.this, "Exercício adicionado !!" + atividadeFisica.getNome(), Toast.LENGTH_SHORT).show();

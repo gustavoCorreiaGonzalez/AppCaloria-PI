@@ -13,15 +13,11 @@ import com.example.avellb155max.appcalorias.Classes.DadosUsuario;
 
 public class CadastrarDadosPessoais extends AppCompatActivity {
     public Button cadastrar;
-    public EditText peso;
-    public EditText altura;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_dados_pessoais);
-
 
         cadastrar = (Button) findViewById(R.id.cadastrarDadosPessoais);
         final EditText peso = (EditText) findViewById((R.id.peso));

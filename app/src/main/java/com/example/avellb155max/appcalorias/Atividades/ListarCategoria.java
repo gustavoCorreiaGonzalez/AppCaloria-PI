@@ -29,11 +29,17 @@ public class ListarCategoria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categoria);
+        setContentView(R.layout.activity_lista_padrao);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        List<Categoria> categoria = new ArrayList<Categoria>();
+        // pegando os parametros passados para a atividade
+        Intent intent = getIntent();
+        final String idDiario = intent.getStringExtra("idDiario");
+        final String idTipo = intent.getStringExtra("idTipo");
+
+
+        final List<Categoria> Categoria = new ArrayList<Categoria>();
 
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
@@ -48,7 +54,7 @@ public class ListarCategoria extends AppCompatActivity {
                 String id = jo_inside.getString("id");
                 String nome = jo_inside.getString("nome");
 
-                categoria.add(new Categoria(id, nome));
+                Categoria.add(new Categoria(id, nome));
                 System.out.println("id: " + id);
                 System.out.println("nome: " + nome);
                 m_li = new HashMap<String, String>();
@@ -61,18 +67,21 @@ public class ListarCategoria extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        CategoriaAdapter adapter = new CategoriaAdapter(this, R.layout.activity_categoria_item, categoria);
-        ListView Lista = (ListView) findViewById(R.id.listaCategoria);
+        CategoriaAdapter adapter = new CategoriaAdapter(this, R.layout.activity_item_padrao, Categoria);
+        ListView Lista = (ListView) findViewById(R.id.listaElementos);
         Lista.setAdapter(adapter);
         Lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Categoria categoria = Categoria.get(position);
 
                 // Passa o ID da categoria para listar as SubCategorias
                 Intent intent = new Intent(v.getContext(), ListarSubCategoria.class);
                 Bundle params = new Bundle();
 
-                params.putString("idCategoria", String.valueOf(position+1));
-                System.out.println("INDOOOO idCategoria: " + position+1);
+                params.putString("idDiario", String.valueOf(idDiario));
+                params.putString("idTipo", String.valueOf(idTipo));
+                params.putString("idCategoria", String.valueOf(categoria.getId().toString()));
+                System.out.println("INDOOOO idCategoria: " + categoria.getId());
                 intent.putExtras(params);
                 startActivity(intent);
             }

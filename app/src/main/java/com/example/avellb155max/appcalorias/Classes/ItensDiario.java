@@ -8,13 +8,15 @@ import com.orm.SugarRecord;
 public class ItensDiario extends SugarRecord<Diario> {
     Diario diario;
     AtividadesDiarias atividadesDiarias;
+    int tipo;
 
     public ItensDiario(){
     }
 
-    public ItensDiario(Diario diario, AtividadesDiarias atividadesDiarias) {
+    public ItensDiario(Diario diario, AtividadesDiarias atividadesDiarias, int tipo) {
         this.diario = diario;
         this.atividadesDiarias = atividadesDiarias;
+        this.tipo = tipo;
     }
 
     public Diario getDiario() {
@@ -31,5 +33,13 @@ public class ItensDiario extends SugarRecord<Diario> {
 
     public void setAtividadesDiarias(AtividadesDiarias atividadesDiarias) {
         this.atividadesDiarias = atividadesDiarias;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 }

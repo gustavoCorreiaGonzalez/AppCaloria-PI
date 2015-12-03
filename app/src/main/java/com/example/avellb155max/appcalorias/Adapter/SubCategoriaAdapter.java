@@ -38,8 +38,8 @@ public class SubCategoriaAdapter extends ArrayAdapter<SubCategoria> {
         SubCategoria item = subCategorias.get(position);
 
         if(item != null){
-            TextView id = (TextView) convertView.findViewById(R.id.subCategoriaId);
-            TextView nome = (TextView) convertView.findViewById(R.id.subCategoriaNome);
+            TextView id = (TextView) convertView.findViewById(R.id.idElemento);
+            TextView nome = (TextView) convertView.findViewById(R.id.nomeElemento);
 
             id.setText(item.getId());
             nome.setText(item.getNome());
