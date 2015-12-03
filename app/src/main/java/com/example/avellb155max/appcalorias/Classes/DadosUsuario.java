@@ -6,30 +6,30 @@ import com.orm.SugarRecord;
  * Created by gustavo on 24/10/15.
  */
 public class DadosUsuario extends SugarRecord<DadosUsuario> {
-    String altura;
-    String peso;
+    double altura;
+    double peso;
 
     public DadosUsuario(){
     }
 
-    public DadosUsuario(String altura, String peso){
+    public DadosUsuario(double altura, double peso) {
         this.altura = altura;
         this.peso = peso;
     }
 
-    public String getAltura() {
-        return altura;
-    }
-
-    public void setAltura(String altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
-    public String getPeso() {
-        return peso;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
-    public void setPeso(String peso) {
-        this.peso = peso;
+    public double getAltura() {
+        return this.altura;
+    }
+
+    public double getPeso() {
+        return this.peso;
     }
 }

@@ -29,6 +29,7 @@
 
             <EditText
                 android:id="@+id/altura"
+                android:inputType="numberDecimal"
                 android:layout_width="384dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -47,6 +48,7 @@
 
             <EditText
                 android:id="@+id/peso"
+                android:inputType="numberDecimal"
                 android:layout_width="384dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>

@@ -14,6 +14,9 @@ import com.example.avellb155max.appcalorias.Atividades.ListarAtividade;
 import com.example.avellb155max.appcalorias.Atividades.ListarCategoria;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDadosPessoais;
 import com.example.avellb155max.appcalorias.Fragmentos.FragmentDiario;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -30,6 +33,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.RecyclerViewCacheUtil;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
