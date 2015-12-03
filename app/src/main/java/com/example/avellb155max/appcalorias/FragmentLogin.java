@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.avellb155max.appcalorias.Classes.DadosUsuario;
@@ -31,7 +32,7 @@ public class FragmentLogin  extends Fragment {
 
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
-
+    Button loginOffline;
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
@@ -93,7 +94,16 @@ public class FragmentLogin  extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragmet_login, container, false);
+        View rootView = inflater.inflate(R.layout.fragmet_login, container, false);
+        loginOffline = (Button) rootView.findViewById(R.id.login_offline);
+        loginOffline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CadastrarDadosPessoais.class);
+                startActivity(i);
+            }
+        });
+        return rootView;
     }
 
     @Override

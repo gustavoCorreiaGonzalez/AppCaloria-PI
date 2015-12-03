@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">AppCalorias</string>
     <string name="action_settings">Settings</string>
-    <string name="app_id">444416889088978</string>
+    <string name="app_id">1512013335757828</string>
+   <!-- <string name="app_id">444416889088978</string> Gustavo -->
+
 
     // Título do aplicativos
     <string name="drawer_item_compact_header">Projeto Verão</string>
