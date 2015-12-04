@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.avellb155max.appcalorias.Classes.ItensDiario;
 import com.example.avellb155max.appcalorias.R;
@@ -53,13 +54,23 @@ public class ListarAtividades extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ListarCategoria.class);
-                Bundle params = new Bundle();
+                if(!idTipo.equals("5")) {
+                    Intent intent = new Intent(v.getContext(), ListarCategoria.class);
+                    Bundle params = new Bundle();
 
-                params.putString("idDiario", String.valueOf(idDiario));
-                params.putString("idTipo", String.valueOf(idTipo));
-                intent.putExtras(params);
-                startActivity(intent);
+                    params.putString("idDiario", String.valueOf(idDiario));
+                    params.putString("idTipo", String.valueOf(idTipo));
+                    intent.putExtras(params);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(v.getContext(), ListarExercicios.class);
+                    Bundle params = new Bundle();
+
+                    params.putString("idDiario", String.valueOf(idDiario));
+                    params.putString("idTipo", String.valueOf(idTipo));
+                    intent.putExtras(params);
+                    startActivity(intent);
+                }
             }
         });
     }
