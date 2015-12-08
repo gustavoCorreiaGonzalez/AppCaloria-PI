@@ -62,6 +62,8 @@ public class FragmentDiario extends Fragment {
                         .beginTransaction()
                         .replace(R.id.fragment_container, FragmentRefeicoes.newInstance(diario.getId())).addToBackStack(null)
                         .commit();
+
+                //atualizarLista
             }
         });
 
@@ -95,7 +97,7 @@ public class FragmentDiario extends Fragment {
 
     public void addDia() {
         Date data = new Date();
-        Diario diario = new Diario(0,0,3000,data,null);
+        Diario diario = new Diario(0,0,0,data,null);
         diario.save();
 
         updateListContent();
@@ -108,7 +110,10 @@ public class FragmentDiario extends Fragment {
 
         DiarioAdapter adapter = new DiarioAdapter(getActivity(), items);
         listView.setAdapter(adapter);
+
     }
+
+    //private void
 
     // Função que remove o dia de treino
     public void removerDiario(final long id){

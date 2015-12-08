@@ -78,6 +78,7 @@ public class ListarExercicios extends AppCompatActivity {
                 atividadesDiarias.save();
 
                 Diario diario = Diario.findById(Diario.class, Long.valueOf(idDiario));
+                //diario.se
 
                 ItensDiario itensDiario = new ItensDiario(diario,atividadesDiarias,Integer.valueOf(idTipo));
                 itensDiario.save();

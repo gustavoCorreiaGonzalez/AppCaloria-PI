@@ -79,6 +79,7 @@ public class ListarAtividades extends AppCompatActivity {
 
             ItensDiario item = getItem(position);
 
+
             TextView id = (TextView) convertView.findViewById(R.id.alimentoId);
             id.setText(String.valueOf(item.getAtividadesDiarias().getId()));
 
