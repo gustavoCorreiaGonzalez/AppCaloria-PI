@@ -82,6 +82,7 @@ public class ListarAlimentos extends AppCompatActivity {
         Lista.setAdapter(adapter);
         Lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+                int soma = 0;
                 Alimentos alimentos = Alimentos.get(position);
 
                 AtividadesDiarias atividadesDiarias = new AtividadesDiarias(alimentos.getNome(),Integer.valueOf(alimentos.getCaloria()), Integer.valueOf(idTipo));
@@ -91,6 +92,11 @@ public class ListarAlimentos extends AppCompatActivity {
 
                 ItensDiario itensDiario = new ItensDiario(diario,atividadesDiarias,Integer.valueOf(idTipo));
                 itensDiario.save();
+
+                soma = diario.getCaloriasConsumidas() + Integer.parseInt(String.valueOf(alimentos.getCaloria()));
+                diario.setCaloriasConsumidas(soma);
+                System.out.println("soma + " + soma);
+                diario.save();
 
                 Toast.makeText(ListarAlimentos.this, "Alimento adicionado !!" + itensDiario.getAtividadesDiarias().getNome(), Toast.LENGTH_SHORT).show();
             }
