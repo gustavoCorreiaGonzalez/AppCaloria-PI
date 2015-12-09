@@ -106,8 +106,17 @@ public class FragmentLogin extends Fragment {
         loginOffline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), CadastrarDadosPessoais.class);
-                startActivity(i);
+                List<DadosUsuario> items = DadosUsuario.listAll(DadosUsuario.class);
+
+                if(items.isEmpty()) {
+                    // redireciona para o cadastro de peso e altura
+                    Intent i = new Intent(getActivity(), CadastrarDadosPessoais.class);
+                    startActivity(i);
+                } else {
+                    // redireciona para o app
+                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    startActivity(i);
+                }
             }
         });
         return rootView;

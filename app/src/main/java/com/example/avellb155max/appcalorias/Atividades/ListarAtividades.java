@@ -1,17 +1,24 @@
 package com.example.avellb155max.appcalorias.Atividades;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.avellb155max.appcalorias.Adapter.AtividadeFisica;
+import com.example.avellb155max.appcalorias.Adapter.AtividadeFisicaAdapter;
+import com.example.avellb155max.appcalorias.Classes.AtividadesDiarias;
+import com.example.avellb155max.appcalorias.Classes.Diario;
 import com.example.avellb155max.appcalorias.Classes.ItensDiario;
 import com.example.avellb155max.appcalorias.R;
 
@@ -20,6 +27,8 @@ import java.util.List;
 public class ListarAtividades extends AppCompatActivity {
     String idDiario;
     String idTipo;
+    String idAtividade;
+    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,7 @@ public class ListarAtividades extends AppCompatActivity {
             textViewTitulo.setText("Exercícios");
         }
 
-        ListView list = (ListView) findViewById(R.id.listViewAtividade);
+        list = (ListView) findViewById(R.id.listViewAtividade);
         List<ItensDiario> itens = ItensDiario.find(ItensDiario.class, "diario = ? AND tipo = ?", idDiario, idTipo);
         AtividadesAdapter adapter = new AtividadesAdapter(this, itens);
         list.setAdapter(adapter);
@@ -73,6 +82,45 @@ public class ListarAtividades extends AppCompatActivity {
                 }
             }
         });
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                ItensDiario itensDiario = ((AtividadesAdapter) list.getAdapter()).getItem(position);
+                removerAtividade(itensDiario.getId());
+                return true;
+            }
+        });
+
+    }
+
+    // Função que atualiza a lista da Atividade
+    private void updateListContent() {
+        List<ItensDiario> items = ItensDiario.findWithQuery(ItensDiario.class, "SELECT * FROM Itens_Diario");
+
+        AtividadesAdapter adapter = new AtividadesAdapter(getApplicationContext(), items);
+        list.setAdapter(adapter);
+    }
+
+    // Função que remove a atividade
+    public void removerAtividade(final Long id){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Remover essa atividade física?");
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                ItensDiario itensDiario = ItensDiario.findById(ItensDiario.class, Long.valueOf(id));
+                itensDiario.delete();
+                Toast.makeText(getApplicationContext(), "A atividade foi removida!", Toast.LENGTH_SHORT).show();
+
+                updateListContent();
+
+                list.invalidateViews();
+            }
+            })
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            }).setIcon(android.R.drawable.ic_delete).show();
     }
 
     private class AtividadesAdapter extends ArrayAdapter<ItensDiario> {
@@ -92,6 +140,7 @@ public class ListarAtividades extends AppCompatActivity {
 
 
             TextView id = (TextView) convertView.findViewById(R.id.alimentoId);
+            idAtividade = item.getAtividadesDiarias().getId().toString();
             id.setText(String.valueOf(item.getAtividadesDiarias().getId()));
 
             TextView nome = (TextView) convertView.findViewById(R.id.alimentoNome);

@@ -74,13 +74,13 @@ public class ListarExercicios extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 AtividadeFisica atividadeFisica = Atividade.get(position);
 
-                AtividadesDiarias atividadesDiarias = new AtividadesDiarias(atividadeFisica.getNome(),Integer.parseInt(atividadeFisica.getCaloria()), Integer.parseInt(idTipo));
+                AtividadesDiarias atividadesDiarias = new AtividadesDiarias(atividadeFisica.getNome(), Integer.parseInt(atividadeFisica.getCaloria()), Integer.parseInt(idTipo));
                 atividadesDiarias.save();
 
                 Diario diario = Diario.findById(Diario.class, Long.valueOf(idDiario));
                 //diario.se
 
-                ItensDiario itensDiario = new ItensDiario(diario,atividadesDiarias,Integer.valueOf(idTipo));
+                ItensDiario itensDiario = new ItensDiario(diario, atividadesDiarias, Integer.valueOf(idTipo));
                 itensDiario.save();
 
                 Toast.makeText(ListarExercicios.this, "Exercício adicionado !!" + atividadeFisica.getNome(), Toast.LENGTH_SHORT).show();
