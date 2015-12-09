@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.avellb155max.appcalorias.Adapter.AtividadeFisica;
 import com.example.avellb155max.appcalorias.Classes.Diario;
+import com.example.avellb155max.appcalorias.Classes.ItensDiario;
 import com.example.avellb155max.appcalorias.R;
 import com.example.avellb155max.appcalorias.Utils.Utils;
 
@@ -28,6 +31,7 @@ import java.util.List;
 
 public class FragmentDiario extends Fragment {
     private ListView listView;
+    private double somarCalorias;
 
     public static FragmentDiario newInstance(String param1, String param2) {
         FragmentDiario fragment = new FragmentDiario();
@@ -64,6 +68,7 @@ public class FragmentDiario extends Fragment {
                         .commit();
 
                 //atualizarLista
+                updateListContent();
             }
         });
 
@@ -108,9 +113,13 @@ public class FragmentDiario extends Fragment {
     private void updateListContent() {
         List<Diario> items = Diario.findWithQuery(Diario.class, "SELECT * FROM Diario");
 
+        for(Diario d : items){
+
+            d.setCaloriasRestantes( d.getCaloriasConsumidas() - d.getCaloriasRestantes());
+            d.save();
+        }
         DiarioAdapter adapter = new DiarioAdapter(getActivity(), items);
         listView.setAdapter(adapter);
-
     }
 
     //private void
