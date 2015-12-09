@@ -114,8 +114,7 @@ public class FragmentDiario extends Fragment {
         List<Diario> items = Diario.findWithQuery(Diario.class, "SELECT * FROM Diario");
 
         for(Diario d : items){
-
-            d.setCaloriasRestantes( d.getCaloriasConsumidas() - d.getCaloriasRestantes());
+            d.setCaloriasRestantes( d.getCaloriasConsumidas() - d.getCaloriasQueimadas());
             d.save();
         }
         DiarioAdapter adapter = new DiarioAdapter(getActivity(), items);
